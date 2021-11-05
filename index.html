@@ -12,7 +12,7 @@
     <meta property="og:image" content="./images/og-images.jpg">
     <meta property="og:description" content="대한민국 할리스커피">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="한솔제지">
+    <meta name="twitter:title" content="할리스커피">
     <meta name="twitter:url" content="https://jungjaewooo.github.io/Report07/">
     <meta name="twitter:image" content="./images/og-images">
     <meta name="twitter:description" content="대한민국의 커피자존심">
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- 외부플러그인 / bxslider -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.css">
+    
     <title>HOLLYS</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
@@ -38,17 +39,12 @@
         /* .wrap{overflow:hidden;} */
         /* HEADER STYLE */
         .header{
-            background-color:#9c7f57;
+            background-color:brown;
             position:relative;
         }
-        .header .container{
-            display:flex;
-            flex-flow:row wrap;
-            justify-content:space-between;
-            align-items:center;
-            align-content:space-between;
-        }
-        .header .container::before{
+        .mo-logo{position:relative; left:100%;}
+        
+        /* .header .container::before{
             content:'창업설명회';
             display:block;
             border-radius:10px;
@@ -56,6 +52,31 @@
             background-color:#666;
             color:#fff;
             cursor: pointer;
+        } */
+        .open{
+            display:block; width:120px; height:50px; background:#333; position: fixed; z-index:4;
+            text-decoration:none; text-align:center; line-height:50px; color:black; border-radius:50px;
+        }
+        .clos{
+            position:absolute; left:50%; top:50%; z-index:5; transform:translate(-50%,-50%);
+            width: 500px; height:500px; box-shadow: 0 0 10px rgba(0,0,0,0.5); background-color:#fff;
+            border-radius:5px; text-align:right; padding:20px; box-sizing: border-box; opacity:0; transition: all 0.5s;
+        }
+        .clos>video{
+            width:92%;
+            height:92%;
+        }
+        .clos a{color:gray; text-decoration: none;}
+        .clos:target{opacity: 1;}
+        .clos:target + .dim {opacity:1; z-index:2;}
+        .dim{position: fixed; left:0; top:0; z-index:-1; width:100%; height:100%;
+                background:rgba(0,0,0,0.6); opacity:0; transition:all 0.5s;}
+        .header .container{
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:space-between;
+            align-items:center;
+            align-content:space-between;
         }
         .quick-menu01{
             display:none;
@@ -284,7 +305,7 @@
 
         /* FOOTER Style */
         .footer{
-            background-color:#9c7f57;
+            background-color:brown;
         }        
         .footer>ul{            
             height:50px;
@@ -300,6 +321,25 @@
             font-weight:500;
             font-size:20px;
             text-align:center;
+        }
+        .footer .container{
+            display:flex;
+            align-items: left;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+        }
+        .footer .container>ul li>a{
+            padding:10px;
+            float:left;
+            display:flex;
+            flex-flow:row wrap;
+            justify-content:center; 
+        }
+        footer .container>ul li>address{
+            text-transform:uppercase;
+            opacity:4;
+            font-weight: 200;
         }
         .footer>ul::before{
             content:'';
@@ -328,9 +368,10 @@
             .header .container{
                 align-items:flex-start;
             }
-            .header .container::before{
+            /* .header .container::before{
                 display:none;
-            }
+            } */
+            .open{display: none;}
             .quick-menu01{
                 display:flex;
             }
@@ -418,6 +459,16 @@
     </style>
 </head>
 <body>
+    <!-- <a href="#pop1" class="open">창업설명회</a>
+    <div class="clos" id="pop1">
+        <a href="#a">닫기</a>
+    </div>
+    <div class="dim"></div> -->
+    <div class="clos" id="pop1">
+    <video controls autoplay loop src="./copy.mp4"></video>
+        <a href="#a">닫기</a>
+    </div>
+    <div class="dim"></div>
     <div class="skip-menu">
         <a href="#main">본문 바로가기</a>
     </div>
@@ -425,6 +476,7 @@
     <section class="wrap">
         <header class="header">
             <div class="container">
+                <a href="#pop1" class="open">창업설명회</a>
                 <ul class="quick-menu01">
                     <li><a href="#">가맹문의</a></li>
                     <li><a href="#">아카데미</a></li>
@@ -503,9 +555,12 @@
                     </ul>
                 </nav>
                 <div class="floating">
-                    <a href="#"><img src="./images/floating.png" alt="창업박람회 바로가기"></a>
+                    <a href="#pop1"><img src="./images/floating.png" alt="창업박람회 바로가기"></a>
                 </div>
             </div>
+            <!-- <video id="small1" controls autoplay>
+                <source src="videos/small.mp4">
+            </video> -->
         </header>
         <section class="main-banner">
             <div class="slider">
@@ -754,4 +809,5 @@
         })
     </script>
 </body>
+</html>
 </html>
